@@ -1,0 +1,3 @@
+*.txt text eol=crlf     # Set CRLF for all .txt files
+*.hcl text eol=lf       # Set LF for all .hcl files
+*.md text eol=lf        # Set LF for Markdown files
