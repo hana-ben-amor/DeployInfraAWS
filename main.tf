@@ -1,6 +1,8 @@
 # Configure the AWS Provider
 provider "aws" {
   region = "us-east-1"
+  access_key = "<YOUR_ACCESSKEY>"
+  secret_key = "<YOUR_SECRETKEY>"
 }
 
 #Retrieve the list of AZs in the current AWS region
@@ -113,5 +115,18 @@ resource "aws_nat_gateway" "nat_gateway" {
   subnet_id     = aws_subnet.public_subnets["public_subnet_1"].id
   tags = {
     Name = "demo_nat_gateway"
+  }
+}
+
+
+resource "aws_instance" "web" {
+  ami = "<AMI>"
+  instance_type = "t3.micro"
+
+  subnet_id = "<SUBNET>"
+  vpc_security_group_ids = ["<SECURITY_GROUP>"]
+
+  tags = {
+  "Identity" = "<IDENTITY>"
   }
 }
